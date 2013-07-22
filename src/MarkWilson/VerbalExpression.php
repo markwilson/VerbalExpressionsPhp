@@ -378,7 +378,7 @@ class VerbalExpression
      *
      * @param string $modifier Modifier character
      *
-     * @return bool
+     * @return boolean
      */
     private function hasModifier($modifier)
     {
