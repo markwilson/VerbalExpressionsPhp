@@ -250,11 +250,6 @@ class VerbalExpression
         return $this;
     }
 
-    public function replace($search, $value)
-    {
-        throw new \RuntimeException('Not yet implemented');
-    }
-
     /**
      * Add a regular expression partial
      *
