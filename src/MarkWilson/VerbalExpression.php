@@ -269,9 +269,26 @@ class VerbalExpression
         return $this;
     }
 
+    /**
+     * Shortcut for adding multiples
+     *
+     * @param string $value Value to be multiples
+     *
+     * @return $this
+     */
     public function multiple($value)
     {
-        throw new \RuntimeException('Not yet implemented');
+        $value = $this->sanitise($value);
+
+        switch (substr($value, -1)) {
+            case '*':
+            case '+':
+                break;
+            default:
+                $value .= '+';
+        }
+
+        return $this->add($value);
     }
 
     /**
