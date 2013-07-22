@@ -318,6 +318,16 @@ class VerbalExpression
     }
 
     /**
+     * Shorthand for __toString method
+     *
+     * @return string
+     */
+    public function toString()
+    {
+        return (string)$this;
+    }
+
+    /**
      * Compile all but the start and end characters
      *
      * @return string
