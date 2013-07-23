@@ -12,5 +12,8 @@
         "psr-0": {
             "MarkWilson\\": "src/"
         }
+    },
+    "require": {
+        "phpunit/phpunit": "3.7.22"
     }
 }
