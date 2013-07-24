@@ -33,4 +33,20 @@ class VerbalExpressionOutputTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(1, preg_match($verbalExpression->toString(), 'https://www.google.com'));
     }
+
+    /**
+     * Test nested expressions
+     *
+     * @return void
+     */
+    public function testNestedExpressions()
+    {
+        $innerExpression = new VerbalExpression();
+        $innerExpression->word();
+
+        $outerExpression = new VerbalExpression();
+        $outerExpression->startOfLine()->then($innerExpression)->endOfLine();
+
+        $this->assertEquals('^(\w+)$', $outerExpression->compile());
+    }
 }

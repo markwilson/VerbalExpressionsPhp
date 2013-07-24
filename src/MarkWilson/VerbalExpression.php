@@ -347,8 +347,11 @@ class VerbalExpression
     private function sanitise($value)
     {
         if ($value instanceof VerbalExpression) {
-            $value = $value->compile();
-        } elseif (!is_string($value)) {
+            // no need to run sanitisation on an existing expression object
+            return $value->compile();
+        }
+
+        if (!is_string($value)) {
             $value = (string)$value;
         }
 
