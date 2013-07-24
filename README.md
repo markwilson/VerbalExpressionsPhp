@@ -87,7 +87,12 @@ This allows for disabling and enabling in groups.
 <?php
 
 // equivalent to (\w+)(?:\w+)(?:\w+)(\w+)
-$verbalExpression->word()->disableSubPatternCapture()->word()->word()->enableSubPatternCapture()->word();
+$verbalExpression->word()
+                 ->disableSubPatternCapture()
+                 ->word()
+                 ->word()
+                 ->enableSubPatternCapture()
+                 ->word();
 ````
 
   [1]: https://github.com/jehna/VerbalExpressions "jehna/VerbalExpressions"
