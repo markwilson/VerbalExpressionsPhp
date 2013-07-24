@@ -7,7 +7,7 @@ PHP port of [jehna/VerbalExpressions][1].
 ```` php
 <?php
 
-require_once 'vendor/composer/autoload.php';
+require_once 'vendor/autoload.php';
 
 use MarkWilson\VerbalExpression;
 
@@ -29,6 +29,26 @@ $verbalExpression->compile();
 // perform match
 preg_match($verbalExpression, 'http://www.google.com');
 ````
+
+## Nesting expressions
+
+```` php
+<?php
+
+require_once 'vendor/autoload.php';
+
+use MarkWilson\VerbalExpression;
+
+$innerExpression = new VerbalExpression();
+$innerExpression->word();
+
+$outerExpression = new VerbalExpression();
+$outerExpression->startOfLine()->then($innerExpression)->then($innerExpression)->endOfLine();
+
+// returns ^(\w+)(\w+)$
+$outerExpression->compile();
+````
+
 
 
   [1]: https://github.com/jehna/VerbalExpressions "jehna/VerbalExpressions"

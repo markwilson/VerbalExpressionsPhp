@@ -45,8 +45,12 @@ class VerbalExpressionOutputTest extends \PHPUnit_Framework_TestCase
         $innerExpression->word();
 
         $outerExpression = new VerbalExpression();
-        $outerExpression->startOfLine()->then($innerExpression)->endOfLine();
+        $outerExpression->startOfLine()
+                        ->then($innerExpression)
+                        ->then(' ')
+                        ->then($innerExpression)
+                        ->endOfLine();
 
-        $this->assertEquals('^(\w+)$', $outerExpression->compile());
+        $this->assertEquals('^(\w+)(\ )(\w+)$', $outerExpression->compile());
     }
 }
