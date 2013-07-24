@@ -2,8 +2,6 @@
 
 namespace MarkWilson\Test;
 
-require_once __DIR__ . '/../VerbalExpression.php';
-
 use MarkWilson\VerbalExpression;
 
 /**
