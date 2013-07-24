@@ -49,4 +49,25 @@ class MatcherTest extends \PHPUnit_Framework_TestCase
             $matcher->getMatches($verbalExpression, 'testing')
         );
     }
+
+    /**
+     * Test matches array when not capturing sub patterns
+     *
+     * @return void
+     */
+    public function testMatchesWithoutSubPatternCapture()
+    {
+        $verbalExpression = new VerbalExpression();
+
+        $verbalExpression->disableSubPatternCapture()->find('testing');
+
+        $matcher = new Matcher();
+
+        $this->assertEquals(
+            array(
+                'testing'
+            ),
+            $matcher->getMatches($verbalExpression, 'testing')
+        );
+    }
 }
