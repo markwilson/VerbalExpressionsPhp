@@ -65,7 +65,7 @@ class VerbalExpression
      */
     public function anythingBut($value, $subPattern = null)
     {
-        return $this->add('[^' . $this->sanitise($value) . ']*)', $subPattern);
+        return $this->add('[^' . $this->sanitise($value) . ']*', $subPattern);
     }
 
     /**
