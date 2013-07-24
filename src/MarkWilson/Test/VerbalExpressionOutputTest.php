@@ -29,7 +29,7 @@ class VerbalExpressionOutputTest extends \PHPUnit_Framework_TestCase
                          ->anythingBut(' ')
                          ->endOfLine();
 
-        $this->assertEquals($verbalExpression->compile(), '^(http)(s)?(\:\/\/)(www\.)?([^\ ]*)$');
+        $this->assertEquals('^(http)(s)?(\:\/\/)(www\.)?([^\ ]*)$', $verbalExpression->compile());
 
         $this->assertEquals(1, preg_match($verbalExpression->toString(), 'https://www.google.com'));
     }
