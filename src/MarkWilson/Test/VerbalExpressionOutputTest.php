@@ -54,4 +54,30 @@ class VerbalExpressionOutputTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('(\w+)', $innerExpression->compile());
         $this->assertEquals('^(\w+)(\ )(\w+)$', $outerExpression->compile());
     }
+
+    /**
+     * Test sub pattern disabled locally
+     *
+     * @return void
+     */
+    public function testSubPatternDisabledLocally()
+    {
+        $verbalExpression = new VerbalExpression();
+        $verbalExpression->word(false);
+
+        $this->assertEquals('(?:\w+)', $verbalExpression->compile());
+    }
+
+    /**
+     * Test sub pattern disabled globally
+     *
+     * @return void
+     */
+    public function testSubPatternDisabledGlobally()
+    {
+        $verbalExpression = new VerbalExpression();
+        $verbalExpression->disableSubPatternCapture()->word();
+
+        $this->assertEquals('(?:\w+)', $verbalExpression->compile());
+    }
 }

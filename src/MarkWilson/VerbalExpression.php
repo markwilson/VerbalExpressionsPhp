@@ -37,7 +37,7 @@ class VerbalExpression
      */
     private $modifiers = '';
     /**
-     * Use sub patterns
+     * Use sub pattern capturing
      *
      * @var boolean
      */
@@ -46,7 +46,7 @@ class VerbalExpression
     /**
      * Match anything
      *
-     * @param boolean $subPattern Collect as a sub pattern
+     * @param boolean $subPattern Capture sub patterns?
      *
      * @return $this
      */
@@ -59,7 +59,7 @@ class VerbalExpression
      * Match anything except characters in $value
      *
      * @param string  $value      String of characters to ignore
-     * @param boolean $subPattern Collect as a sub pattern
+     * @param boolean $subPattern Capture sub patterns?
      *
      * @return $this
      */
@@ -86,7 +86,7 @@ class VerbalExpression
      * Shorthand for then method
      *
      * @param string  $value String to find
-     * @param boolean $subPattern Collect as a sub pattern
+     * @param boolean $subPattern Capture sub patterns?
      *
      * @return $this
      */
@@ -99,7 +99,7 @@ class VerbalExpression
      * Add value or not
      *
      * @param string  $value Maybe value
-     * @param boolean $subPattern Collect as a sub pattern
+     * @param boolean $subPattern Capture sub patterns?
      *
      * @return $this
      */
@@ -126,7 +126,7 @@ class VerbalExpression
      * Add a sanitised value check
      *
      * @param string  $value Value to sanitise
-     * @param boolean $subPattern Collect as a sub pattern
+     * @param boolean $subPattern Capture sub patterns?
      *
      * @return $this
      */
@@ -139,7 +139,7 @@ class VerbalExpression
      * Shorthand for anyOf method
      *
      * @param string  $value String of characters
-     * @param boolean $subPattern Collect as a sub pattern
+     * @param boolean $subPattern Capture sub patterns?
      *
      * @return $this
      */
@@ -152,7 +152,7 @@ class VerbalExpression
      * Any of the specified characters
      *
      * @param string  $value String of characters
-     * @param boolean $subPattern Collect as a sub pattern
+     * @param boolean $subPattern Capture sub patterns?
      *
      * @return $this
      */
@@ -164,7 +164,7 @@ class VerbalExpression
     /**
      * Shorthand for lineBreak method
      *
-     * @param boolean $subPattern Collect as a sub pattern
+     * @param boolean $subPattern Capture sub patterns?
      *
      * @return $this
      */
@@ -176,7 +176,7 @@ class VerbalExpression
     /**
      * Search for new line
      *
-     * @param boolean $subPattern Collect as a sub pattern
+     * @param boolean $subPattern Capture sub patterns?
      *
      * @return $this
      */
@@ -188,7 +188,7 @@ class VerbalExpression
     /**
      * Characters in range - requires pairs of arguments, provide subPattern as final argument
      *
-     * @param boolean $subPattern Collect as a sub pattern
+     * @param boolean $subPattern Capture sub patterns?
      *
      * @return $this
      */
@@ -225,7 +225,7 @@ class VerbalExpression
     /**
      * Add tab character
      *
-     * @param boolean $subPattern Collect as a sub pattern
+     * @param boolean $subPattern Capture sub patterns?
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class VerbalExpression
     /**
      * Match entire word
      *
-     * @param boolean $subPattern Collect as a sub pattern
+     * @param boolean $subPattern Capture sub patterns?
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class VerbalExpression
      * Add a regular expression partial
      *
      * @param string  $expression           Regular expression partial to add
-     * @param boolean $subPattern           Collect as a sub pattern
+     * @param boolean $subPattern           Capture sub patterns?
      * @param string  $additionalCharacters Additional characters after brackets - e.g. ?
      *
      * @return $this
@@ -373,6 +373,40 @@ class VerbalExpression
     }
 
     /**
+     * Disable sub pattern capturing
+     *
+     * @return $this
+     */
+    public function disableSubPatternCapture()
+    {
+        return $this->setSubPatternCapture(false);
+    }
+
+    /**
+     * Enable sub pattern capturing
+     *
+     * @return $this
+     */
+    public function enableSubPatternCapture()
+    {
+        return $this->setSubPatternCapture(true);
+    }
+
+    /**
+     * Set sub pattern capturing
+     *
+     * @param boolean $subPatternCapture Capture sub patterns?
+     *
+     * @return $this
+     */
+    public function setSubPatternCapture($subPatternCapture)
+    {
+        $this->subPattern = $subPatternCapture;
+
+        return $this;
+    }
+
+    /**
      * Sanitise the added value
      *
      * @param mixed $value Value to sanitise
@@ -449,7 +483,7 @@ class VerbalExpression
      * Wrap string in brackets
      *
      * @param string|VerbalExpression $text       Text to wrap
-     * @param boolean                 $subPattern Use sub patterns
+     * @param boolean                 $subPattern Use sub pattern capturing
      *
      * @return string
      */
@@ -465,7 +499,7 @@ class VerbalExpression
     /**
      * Generate the opening bracket
      *
-     * @param boolean $subPattern Use sub patterns?
+     * @param boolean $subPattern Use sub pattern capturing?
      *
      * @return string
      */
