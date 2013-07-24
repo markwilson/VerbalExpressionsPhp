@@ -14,6 +14,11 @@ use MarkWilson\VerbalExpression;
  */
 class VerbalExpressionOutputTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * Test equivalent test from original repo
+     *
+     * @return void
+     */
     public function testEquivalentFromJehna()
     {
         $verbalExpression = new VerbalExpression();
