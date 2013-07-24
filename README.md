@@ -42,7 +42,10 @@ $verbalExpression->startOfLine()
 $verbalExpression->compile();
 
 // perform match
-preg_match($verbalExpression, 'http://www.google.com');
+preg_match($verbalExpression, 'http://www.google.com'); // returns 1
+// or
+$matcher = new Matcher();
+$matcher->isMatch($verbalExpression, 'http://www.google.com'); // returns true
 ````
 
 ## Nesting expressions
