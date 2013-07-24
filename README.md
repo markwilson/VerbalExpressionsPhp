@@ -43,7 +43,10 @@ $innerExpression = new VerbalExpression();
 $innerExpression->word();
 
 $outerExpression = new VerbalExpression();
-$outerExpression->startOfLine()->then($innerExpression)->then($innerExpression)->endOfLine();
+$outerExpression->startOfLine()
+                ->then($innerExpression)
+                ->then($innerExpression)
+                ->endOfLine();
 
 // returns ^(\w+)(\w+)$
 $outerExpression->compile();
