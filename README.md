@@ -4,6 +4,12 @@ PHP port of [jehna/VerbalExpressions][1].
 
 ## Example usage
 
+    <?php
+
+    require_once 'vendor/composer/autoload.php';
+
+    use MarkWilson\VerbalExpression;
+
     // initialise verbal expression instance
     $verbalExpression = new VerbalExpression();
 
