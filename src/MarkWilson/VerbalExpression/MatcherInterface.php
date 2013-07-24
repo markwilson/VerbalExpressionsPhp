@@ -20,4 +20,14 @@ interface MatcherInterface
      * @return boolean
      */
     public function isMatch(VerbalExpression $verbalExpression, $test);
+
+    /**
+     * Get all matches for the expression
+     *
+     * @param VerbalExpression $verbalExpression Pattern to match
+     * @param string           $test             String to test
+     *
+     * @return string[]
+     */
+    public function getMatches(VerbalExpression $verbalExpression, $test);
 }

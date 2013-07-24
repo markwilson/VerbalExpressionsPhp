@@ -23,4 +23,21 @@ class Matcher implements MatcherInterface
     {
         return preg_match($verbalExpression, $test) > 0;
     }
+
+    /**
+     * Get all matches for the expression
+     *
+     * @param VerbalExpression $verbalExpression Pattern to match
+     * @param string           $test             String to test
+     *
+     * @return string[]
+     */
+    public function getMatches(VerbalExpression $verbalExpression, $test)
+    {
+        $matches = array();
+
+        preg_match($verbalExpression, $test, $matches);
+
+        return $matches;
+    }
 }

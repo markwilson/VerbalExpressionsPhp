@@ -21,9 +21,32 @@ class MatcherTest extends \PHPUnit_Framework_TestCase
     {
         $verbalExpression = new VerbalExpression();
 
-        $verbalExpression->add('testing');
+        $verbalExpression->then('testing');
 
         $matcher = new Matcher();
         $this->assertTrue($matcher->isMatch($verbalExpression, 'testing'));
+    }
+
+    /**
+     * Test matches array
+     *
+     * @return void
+     */
+    public function testMatchesArray()
+    {
+        $verbalExpression = new VerbalExpression();
+
+        $verbalExpression->then('testing');
+
+        $matcher = new Matcher();
+
+        // as the default is to compile the expression into (testing) we will get an array of matches and submatches
+        $this->assertEquals(
+            array(
+                'testing',
+                'testing'
+            ),
+            $matcher->getMatches($verbalExpression, 'testing')
+        );
     }
 }
