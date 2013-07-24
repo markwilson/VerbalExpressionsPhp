@@ -54,10 +54,6 @@ $matcher->isMatch($verbalExpression, 'http://www.google.com'); // returns true
 ```` php
 <?php
 
-require_once 'vendor/autoload.php';
-
-use MarkWilson\VerbalExpression;
-
 $innerExpression = new VerbalExpression();
 $innerExpression->word();
 
@@ -71,6 +67,27 @@ $outerExpression->startOfLine()
 $outerExpression->compile();
 ````
 
+## Disable sub pattern capturing
 
+By default, sub patterns are captured and will be returned in the matches array.
+
+```` php
+<?php
+
+// disable sub pattern capture
+$verbalExpression->disableSubPatternCapture()->word(); // (?:\w+)
+// or
+$verbalExpression->word(false); // (?:\w+)
+````
+
+Disabling this will only affect subsequent additions to the expression; any already added will be unaffected.
+This allows for disabling and enabling in groups.
+
+```` php
+<?php
+
+// equivalent to (\w+)(?:\w+)(?:\w+)(\w+)
+$verbalExpression->word()->disableSubPatternCapture()->word()->word()->enableSubPatternCapture()->word();
+````
 
   [1]: https://github.com/jehna/VerbalExpressions "jehna/VerbalExpressions"
