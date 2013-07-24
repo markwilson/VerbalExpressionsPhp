@@ -21,7 +21,7 @@ class MatcherTest extends \PHPUnit_Framework_TestCase
     {
         $verbalExpression = new VerbalExpression();
 
-        $verbalExpression->then('testing');
+        $verbalExpression->find('testing');
 
         $matcher = new Matcher();
         $this->assertTrue($matcher->isMatch($verbalExpression, 'testing'));
@@ -36,7 +36,7 @@ class MatcherTest extends \PHPUnit_Framework_TestCase
     {
         $verbalExpression = new VerbalExpression();
 
-        $verbalExpression->then('testing');
+        $verbalExpression->find('testing');
 
         $matcher = new Matcher();
 

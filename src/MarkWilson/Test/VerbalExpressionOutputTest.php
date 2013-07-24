@@ -46,7 +46,7 @@ class VerbalExpressionOutputTest extends \PHPUnit_Framework_TestCase
 
         $outerExpression = new VerbalExpression();
         $outerExpression->startOfLine()
-                        ->then($innerExpression)
+                        ->find($innerExpression)
                         ->then(' ')
                         ->then($innerExpression)
                         ->endOfLine();

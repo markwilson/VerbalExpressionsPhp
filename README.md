@@ -62,7 +62,7 @@ $innerExpression->word();
 
 $outerExpression = new VerbalExpression();
 $outerExpression->startOfLine()
-                ->then($innerExpression)
+                ->find($innerExpression)
                 ->then($innerExpression)
                 ->endOfLine();
 
