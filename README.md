@@ -25,6 +25,7 @@ Add to composer.json:-
 require_once 'vendor/autoload.php';
 
 use MarkWilson\VerbalExpression;
+use MarkWilson\VerbalExpression\Matcher;
 
 // initialise verbal expression instance
 $verbalExpression = new VerbalExpression();
