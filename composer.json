@@ -2,6 +2,7 @@
     "name": "markwilson/verbal-expressions-php",
     "description": "VerbalExpressions for PHP; ported from jehna/VerbalExpressions",
     "license": "MIT",
+    "keywords": ["regular", "expressions", "verbal"]
     "authors": [
         {
             "name": "Mark Wilson",
