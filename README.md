@@ -2,6 +2,21 @@
 
 PHP port of [jehna/VerbalExpressions][1].
 
+## Installation
+
+### Composer
+
+Add to composer.json:-
+
+```` json
+{
+    "require": {
+        ...,
+        "markwilson/verbal-expressions-php": "dev-master"
+    }
+}
+````
+
 ## Example usage
 
 ```` php
