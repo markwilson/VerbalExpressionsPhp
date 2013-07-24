@@ -383,7 +383,7 @@ class VerbalExpression
     {
         if ($value instanceof VerbalExpression) {
             // no need to run sanitisation on an existing expression object
-            return $value->compile();
+            return $value;
         }
 
         if (!is_string($value)) {
@@ -448,13 +448,17 @@ class VerbalExpression
     /**
      * Wrap string in brackets
      *
-     * @param string  $text       Text to wrap
-     * @param boolean $subPattern Use sub patterns
+     * @param string|VerbalExpression $text       Text to wrap
+     * @param boolean                 $subPattern Use sub patterns
      *
      * @return string
      */
     private function addBrackets($text, $subPattern = null)
     {
+        if ($text instanceof VerbalExpression) {
+            return $text->compile();
+        }
+
         return $this->generateOpeningBracket($subPattern) .  $text . ')';
     }
 
